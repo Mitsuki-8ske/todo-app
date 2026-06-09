@@ -10,3 +10,7 @@ HTML / CSS / JavaScriptで作ったシンプルなToDoアプリです。
 - 完了・未完了の切り替え
 - 全部削除
 - localStorageによる保存
+
+## 公開URL
+
+https://mitsuki-8ske.github.io/todo-app/
