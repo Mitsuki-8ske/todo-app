@@ -65,3 +65,18 @@ li button:hover {
 .done {
   text-decoration: line-through;
 }
+
+@media (max-width: 600px) {
+  input {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+
+  li {
+    width: 80%;
+  }
+
+  button {
+    margin-top: 6px;
+  }
+}
