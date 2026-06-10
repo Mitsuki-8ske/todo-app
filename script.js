@@ -21,6 +21,8 @@ function handleKeyDown(event) {
 function addTodo() {
   const input = document.getElementById("todoInput");
   const todoText = input.value;
+  const dateInput = document.getElementById("dateInput");
+  const todoDate = dateInput.value;
 
   if (todoText === "") {
     alert("やることを入力してください");
@@ -29,7 +31,8 @@ function addTodo() {
 
   const todo = {
     text: todoText,
-    done: false
+    done: false,
+    date: todoDate
   };
 
   todos.push(todo);
@@ -38,13 +41,29 @@ function addTodo() {
   createTodoElement(todo);
 
   input.value = "";
+  dateInput.value = "";
 }
 
 function createTodoElement(todo) {
   const li = document.createElement("li");
 
   const span = document.createElement("span");
-  span.textContent = todo.text;
+
+  const textSpan = document.createElement("span");
+  textSpan.textContent = todo.text;
+
+  const dateSpan = document.createElement("small");
+
+  if (todo.date) {
+    dateSpan.textContent = todo.date;
+  } else {
+    dateSpan.textContent = "日付なし";
+  }
+
+  dateSpan.className = "todo-date";
+
+  span.appendChild(textSpan);
+  span.appendChild(dateSpan);
 
   if (todo.done === true) {
     span.classList.add("done");
