@@ -13,4 +13,4 @@ HTML / CSS / JavaScriptで作ったシンプルなToDoアプリです。
 
 ## 公開URL
 
-https://mitsuki-8ske.github.io/todo-app/
+https://mitsuki-8ske.github.io/todo-app/?v=3
