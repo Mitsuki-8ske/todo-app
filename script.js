@@ -5,10 +5,8 @@ window.onload = function() {
 
   if (savedTodos !== null) {
     todos = JSON.parse(savedTodos);
-
-    for (let i = 0; i < todos.length; i++) {
-      createTodoElement(todos[i]);
-    }
+    sortTodos();
+    renderTodos();
   }
 };
 
@@ -36,9 +34,9 @@ function addTodo() {
   };
 
   todos.push(todo);
+  sortTodos();
   saveTodos();
-
-  createTodoElement(todo);
+  renderTodos();
 
   input.value = "";
   dateInput.value = "";
@@ -81,13 +79,12 @@ function createTodoElement(todo) {
   deleteButton.onclick = function(event) {
     event.stopPropagation();
 
-    li.remove();
-
     todos = todos.filter(function(item) {
       return item !== todo;
     });
 
     saveTodos();
+    renderTodos();
   };
 
   li.appendChild(span);
@@ -97,6 +94,23 @@ function createTodoElement(todo) {
 
 function saveTodos() {
   localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+function sortTodos() {
+  todos.sort(function(a, b) {
+    if (!a.date) return 1;
+    if (!b.date) return -1;
+
+    return new Date(a.date) - new Date(b.date);
+  });
+}
+
+function renderTodos() {
+  document.getElementById("todoList").innerHTML = "";
+
+  for (let i = 0; i < todos.length; i++) {
+    createTodoElement(todos[i]);
+  }
 }
 
 function clearTodos() {
