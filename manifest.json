@@ -1,0 +1,10 @@
+{
+  "name": "ToDoリスト",
+  "short_name": "ToDo",
+  "description": "HTML / CSS / JavaScriptで作ったToDoアプリです。",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f4f4f4",
+  "theme_color": "#2563eb",
+  "icons": []
+}
